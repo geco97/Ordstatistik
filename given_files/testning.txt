@@ -1,0 +1,15 @@
+I denna fil finns det en samling ord, ord som kan brukas till testning
+i programmeringsuppgiften.
+
+Att testa sina program kan vara mycket viktigt. Om programmet testas
+ordentligt klarar man sannolikt de automatiska testerna snabbare och
+den inskickade koden blir mer sannolikt accepterad under
+assistenternas analys om man ser till att det fungerar som det
+ska. Det sparar alltid tid att hitta sina egna fel och buggar.
+
+Testning som verktyg vill vi alltid nyttja om vi kan. Givetvis finns
+det otaliga testningsverktyg och approacher, men i denna kurs vill vi
+bara introducera begreppet. Ju mer vi programmerar desto viktigare
+blir det, i praktiken kan det rent av vara livsviktigt.
+
+Heja testning!
