@@ -39,7 +39,7 @@ def readFile(fileName):
                 inputText+=line
             print(inputText) 
     except FileExistsError:
-        print(f"Error: {inputfile} finns inte!")
+        print(f"Error: {fileName} finns inte!")
         return ""
 #save_the_results
 def save_the_results(wordList,outputFile):
