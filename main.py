@@ -30,23 +30,36 @@ def word_list_count(inputText):
                 )
     #print(wordList)
     return wordList
-
+#readFile
+def readFile(fileName):
+    try:
+        inputText=""
+        with open(fileName,"r", encoding='utf-8') as file:
+            for line in file:
+                inputText+=line
+            print(inputText) 
+    except FileExistsError:
+        print(f"Error: {inputfile} finns inte!")
+        return ""
 #save_the_results
 def save_the_results(wordList,outputFile):
     with open(outputFile,"w", encoding='utf-8') as file:
         index = 0
-        file.write('Första femton raderna ur result.txt:\n')
+        file.write(f'Första femton raderna ur {outputFile}:\n')
         for wordObj in wordList:
             if index == 15:
                 break
             file.write(f"{wordObj['Word']} - {wordObj['Antal']}\n")
             index += 1
+        
+
 def save_the_most_frequent(wordList,inputFile):
     wordlist_sort = sorted(wordList, key= lambda x:x['Antal'], reverse=True)
     with open("most_frequent.txt","a", encoding='utf-8') as file:
         file.write('Följande rad bör vara sista raden i most_frequent.txt:\n')
         file_name = inputFile.split('/')[-1]
         file.write(f"{file_name}: {wordlist_sort[0]['Word']} - {wordlist_sort[0]['Antal']}\n")
+    readFile('most_frequent.txt')
 #main 
 def main():
     isRunning = True
@@ -57,6 +70,7 @@ def main():
             inputText = read_file(inputFile)    
             wordList = word_list_count(inputText)
             save_the_results(wordList,outputFile)
+            readFile(outputFile)
             save_the_most_frequent(wordList,inputFile)
             
         except Exception:
