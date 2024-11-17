@@ -28,8 +28,10 @@ def word_list_count(inputText):
                 wordList.append(
                     {"Word":word,"Antal":wordCount}
                 )
+    sortedwordList = sorted(wordList, key= lambda x:x["Word"])
+    #print(sortedwordList)
     #print(wordList)
-    return wordList
+    return sortedwordList
 #readFile
 def readFile(fileName):
     try:
@@ -37,18 +39,17 @@ def readFile(fileName):
         with open(fileName,"r", encoding='utf-8') as file:
             for line in file:
                 inputText+=line
-            print(inputText) 
+            print(inputText)
     except FileExistsError:
         print(f"Error: {fileName} finns inte!")
         return ""
+    
 #save_the_results
 def save_the_results(wordList,outputFile):
     with open(outputFile,"w", encoding='utf-8') as file:
         index = 0
         file.write(f'Första femton raderna ur {outputFile}:\n')
         for wordObj in wordList:
-            if index == 15:
-                break
             file.write(f"{wordObj['Word']} - {wordObj['Antal']}\n")
             index += 1
         
