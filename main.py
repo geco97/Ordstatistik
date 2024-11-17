@@ -52,23 +52,13 @@ def main():
     isRunning = True
     while isRunning:
         try:
-            inputFile = input("Meta in vilken fil du vill läsa:")
-            outputFile = input("Meta in vilken fil du vill spara till:")
-            #print(inputFile)
-            #print(outputFile)
-            #read inputFile
+            inputFile = input("Mata in vilken fil du vill läsa:")
+            outputFile = input("Mata in vilken fil du vill spara till:")
             inputText = read_file(inputFile)    
-            #print(inputText)
-            #return list word
             wordList = word_list_count(inputText)
-            #write the first 15 word in outputfile
             save_the_results(wordList,outputFile)
-            #most_frequent
             save_the_most_frequent(wordList,inputFile)
-            toContinoue = input("Meta in X om du vill stänga:")
-            if toContinoue == 'X':
-                isRunning = False
-                break
+            
         except Exception:
             print("Error")
             isRunning = False
