@@ -33,9 +33,11 @@ def findMostFrequentWord(wordList,inputFile):
         if count == max_count:
             mostFrequentWords.append(word)
     mostFrequentWord = min(mostFrequentWords)
-    with open("most_frequent.txt","a", encoding='utf-8') as file:
-        file_name = inputFile.split('/')[-1]
-        file.write(f"{file_name}: {mostFrequentWord} - {wordList[mostFrequentWord]}\n")
+    mostFrequentFile = 'most_frequent.txt'
+    fileName = inputFile.split("/")
+    with open(mostFrequentFile, 'a', encoding='utf-8') as file:
+        fileName = fileName[-1]
+        file.write(f'{fileName}: {mostFrequentWord} - {wordList[mostFrequentWord]}\n')
 
 #readFile
 def readFile(fileName):
