@@ -22,18 +22,25 @@ def readResultFile(fileName):
         lines = file.readlines()
         maxLines = lines[:15]
         for line in maxLines:
-            inputText+=line
+            inputText = inputText + line
         print(inputText)
 
 #findMostFrequentWord
 def findMostFrequentWord(wordList,inputFile):
-    max_count = max(wordList.values())
+    maxCount = None
+    for count in wordList.values():
+        if maxCount is None or count > maxCount:
+            maxCount=count
+	
     mostFrequentWords = []
     for word, count in wordList.items():
-        if count == max_count:
+        if count == maxCount:
             mostFrequentWords.append(word)
-    mostFrequentWord = min(mostFrequentWords)
+    
+    mostFrequentWordsSorted = sorted(mostFrequentWords)
+    mostFrequentWord = mostFrequentWordsSorted[0]
     mostFrequentFile = 'most_frequent.txt'
+	
     fileName = inputFile.split("/")
     with open(mostFrequentFile, 'a', encoding='utf-8') as file:
         fileName = fileName[-1]
@@ -44,7 +51,7 @@ def readFile(fileName):
     inputText=""
     with open(fileName,"r", encoding='utf-8') as file:
         for line in file:
-            inputText+=line
+            inputText = inputText + line
         print(inputText)
 
 
