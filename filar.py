@@ -1,12 +1,12 @@
 #read_file
 def read_file(inputfile):
-    wordCount = {}
+    wordtotal = {}
     with open(inputfile,"r", encoding='utf-8') as file:
         for line in file:
             words = line.split()
             for word in words:
-                wordCount[word] = wordCount.get(word,0) + 1
-    return wordCount
+                wordtotal[word] = wordtotal.get(word,0) + 1
+    return wordtotal
 
 #writeInOutputfile
 def save_the_results(outputFile,wordlist):
@@ -20,21 +20,21 @@ def readResultFile(fileName):
     inputText=""
     with open(fileName,"r", encoding='utf-8') as file:
         lines = file.readlines()
-        maxLines = lines[:15]
-        for line in maxLines:
+        MestLines = lines[:15]
+        for line in MestLines:
             inputText = inputText + line
         print(inputText)
 
 #findMostFrequentWord
 def findMostFrequentWord(wordList,inputFile):
-    maxCount = None
-    for count in wordList.values():
-        if maxCount is None or count > maxCount:
-            maxCount=count
+    Mesttotal = None
+    for total in wordList.values():
+        if Mesttotal is None or total > Mesttotal:
+            Mesttotal=total
 	
     mostFrequentWords = []
-    for word, count in wordList.items():
-        if count == maxCount:
+    for word, total in wordList.items():
+        if total == Mesttotal:
             mostFrequentWords.append(word)
     
     mostFrequentWordsSorted = sorted(mostFrequentWords)
